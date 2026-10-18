@@ -1,0 +1,24 @@
+# DevOps Basics
+
+DevOps is a set of practices that combines software development and IT operations to improve the delivery and reliability of applications.
+
+## Docker
+Docker is a platform used to package applications and their dependencies into containers. Containers help applications run consistently across different environments.
+
+## Kubernetes
+Kubernetes is a container orchestration platform. It helps deploy, scale, and manage containerized applications.
+
+## CI/CD
+Continuous Integration (CI) involves frequently integrating code changes and running automated tests. Continuous Delivery or Deployment (CD) automates the process of delivering or deploying software changes.
+
+## Jenkins
+Jenkins is an automation server commonly used to build CI/CD pipelines.
+
+## Prometheus
+Prometheus is a monitoring and alerting system that collects and stores time-series metrics.
+
+## Grafana
+Grafana is a visualization platform used to create dashboards from monitoring data, including data collected by Prometheus.
+
+## Terraform
+Terraform is an Infrastructure as Code tool used to define and provision infrastructure through configuration files.
