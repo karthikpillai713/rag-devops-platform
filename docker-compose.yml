@@ -1,0 +1,15 @@
+services:
+  rag-app:
+    build: .
+    image: rag-devops-platform:latest
+    container_name: rag-devops-platform
+    ports:
+      - "8000:8000"
+    volumes:
+      - rag-data:/app/data
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    restart: unless-stopped
+
+volumes:
+  rag-data:

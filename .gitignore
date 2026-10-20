@@ -2,7 +2,7 @@
 __pycache__/
 *.py[cod]
 *.egg-info/
-
+chroma_db_backup/
 # Virtual environment
 .venv/
 venv/
