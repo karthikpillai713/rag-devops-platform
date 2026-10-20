@@ -13,3 +13,5 @@ services:
 
 volumes:
   rag-data:
+    external: true
+    name: rag-devops-platform_rag-data

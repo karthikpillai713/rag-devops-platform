@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rag-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rag-app
+  template:
+    metadata:
+      labels:
+        app: rag-app
+    spec:
+      containers:
+        - name: rag-app
+          image: karthik713/rag-devops-platform:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8000
+          env:
+            - name: OLLAMA_URL
+              value: "http://172.30.186.118:11434/api/generate"
+          volumeMounts:
+            - name: rag-data
+              mountPath: /app/data
+      volumes:
+        - name: rag-data
+          persistentVolumeClaim:
+            claimName: rag-data

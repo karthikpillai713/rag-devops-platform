@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: rag-data-restore
+spec:
+  restartPolicy: Never
+  containers:
+    - name: restore
+      image: busybox:1.36
+      command: ["sh", "-c", "sleep 3600"]
+      volumeMounts:
+        - name: rag-data
+          mountPath: /data
+  volumes:
+    - name: rag-data
+      persistentVolumeClaim:
+        claimName: rag-data
