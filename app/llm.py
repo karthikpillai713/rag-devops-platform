@@ -3,7 +3,7 @@ import json
 from urllib.request import Request, urlopen
 
 
-OLLAMA_URL = "http://localhost:11434/api/generate"
+OLLAMA_URL = "http://host.docker.internal:11434/api/generate"
 MODEL_NAME = "qwen2.5:3b"
 
 
