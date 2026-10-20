@@ -1,12 +1,14 @@
-import json
 import os
+import json
 from urllib.request import Request, urlopen
+
 
 OLLAMA_URL = os.getenv(
     "OLLAMA_URL",
     "http://host.docker.internal:11434/api/generate"
 )
 MODEL_NAME = "qwen2.5:3b"
+
 
 def generate_answer(prompt: str) -> str:
     payload = {
