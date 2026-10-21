@@ -46,3 +46,19 @@ jobs:
           tags: |
             karthik713/rag-devops-platform:latest
             karthik713/rag-devops-platform:${{ github.sha }}
+
+  deploy-to-minikube:
+    name: Deploy to Minikube
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: test-and-build
+    runs-on: self-hosted
+
+    steps:
+      - name: Verify Kubernetes access
+        run: kubectl get nodes
+
+      - name: Deploy image to Kubernetes
+        run: kubectl set image deployment/rag-app rag-app=karthik713/rag-devops-platform:${{ github.sha }}
+
+      - name: Verify deployment rollout
+        run: kubectl rollout status deployment/rag-app --timeout=180s

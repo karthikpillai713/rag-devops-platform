@@ -3,13 +3,14 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 
 from app.llm import answer_question
+from prometheus_fastapi_instrumentator import Instrumentator
 
 app = FastAPI(
     title="RAG DevOps Platform",
     description="A locally hosted AI document assistant",
     version="1.0.0",
 )
-
+Instrumentator().instrument(app).expose(app, endpoint="/metrics")
 
 class SearchRequest(BaseModel):
     question: str
